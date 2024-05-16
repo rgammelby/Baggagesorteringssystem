@@ -38,28 +38,33 @@ namespace Baggagesorteringssystem.Data_Access
         private string GenerateQRCode()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            StringBuilder qrCode = new StringBuilder();
             Random random = new Random();
+            string qrCodeString;
+            bool isUnique;
 
-            // Generate a random string of characters for the QR code
-            for (int i = 0; i < 10; i++)
+            do
             {
-                qrCode.Append(chars[random.Next(chars.Length)]);
-            }
+                StringBuilder qrCode = new StringBuilder();
+                // generate a random string of 10 characters
+                for (int i = 0; i < 10; i++)
+                {
+                    qrCode.Append(chars[random.Next(chars.Length)]);
+                }
 
-            // Add the QR code to the list of QR codes
-            string qrCodeString = qrCode.ToString();
-            qrCodeList.Add(qrCodeString);
+                qrCodeString = qrCode.ToString();
+                isUnique = !qrCodeList.Contains(qrCodeString);
 
-            // check if the qr code is unique
-            if (qrCodeList.Contains(qrCodeString))
-            {
-                qrCodeString = GenerateQRCode();
-            }
+                // if the qrCode is unique, add it to the list
+                if (isUnique)
+                {
+                    qrCodeList.Add(qrCodeString);
+                }
+            }while(!isUnique); //if the qrCode is not unique, generate a new one
 
-            qrCodeList.Add(qrCodeString);
             return qrCodeString;
         }
+
+       
 
         public void SetBoardingPass(BoardingPass boardingPass)
         {
