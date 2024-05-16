@@ -12,6 +12,10 @@ namespace Baggagesorteringssystem.Data_Access
         private Gate _gate;
         private int _boardingPassNumber;
 
+        public Terminal Terminal { get { return _terminal; } }
+        public Gate Gate { get { return _gate; } }
+        public int BoardingPassNumber { get { return _boardingPassNumber; } }
+
         List<int> BoardingPassNumbers = new List<int>();
 
         private int GenerateBoardingPassNumber()

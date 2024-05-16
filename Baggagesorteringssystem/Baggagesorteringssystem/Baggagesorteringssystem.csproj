@@ -96,9 +96,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business Logic\SortingSystem.cs" />
+    <Compile Include="Data Access\Aircraft.cs" />
     <Compile Include="Data Access\BoardingPass.cs" />
     <Compile Include="Data Access\Connection.cs" />
+    <Compile Include="Data Access\Destination.cs" />
+    <Compile Include="Data Access\Flight.cs" />
+    <Compile Include="Data Access\Gate.cs" />
     <Compile Include="Data Access\Passenger.cs" />
+    <Compile Include="Data Access\Terminal.cs" />
     <Compile Include="Data Access\Time.cs" />
     <Compile Include="Data Access\Luggage.cs" />
     <Compile Include="Program.cs" />

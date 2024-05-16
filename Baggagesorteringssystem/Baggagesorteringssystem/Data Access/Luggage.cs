@@ -8,8 +8,9 @@ namespace Baggagesorteringssystem.Data_Access
 {
     internal class Luggage
     {
-
         private BoardingPass _bordingPass;
+
+        public BoardingPass BoardingPass { get { return _bordingPass; } }
 
         private string _flightId;
         private string _passengerName;
@@ -53,7 +54,7 @@ namespace Baggagesorteringssystem.Data_Access
             // check if the qr code is unique
             if (qrCodeList.Contains(qrCodeString))
             {
-                qrCode = GenerateQRCode();
+                qrCodeString = GenerateQRCode();
             }
 
             qrCodeList.Add(qrCodeString);
