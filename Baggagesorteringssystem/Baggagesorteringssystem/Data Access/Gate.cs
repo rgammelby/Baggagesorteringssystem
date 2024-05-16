@@ -12,11 +12,13 @@ namespace Baggagesorteringssystem.Data_Access
         private int _gateId;
         private string _gateName;
 
+        public string GateName { get; private set; }
+
         public Gate(Terminal terminal, int gateId, string gateName)
         {
             _terminal = terminal;
             _gateId = gateId;
-            _gateName = gateName;
+            GateName = gateName;
         }
     }
 }
