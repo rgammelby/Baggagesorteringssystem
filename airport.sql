@@ -86,7 +86,13 @@ LEFT JOIN Passengers p ON f.flight_id = p.flight_id
 GROUP BY f.flight_id;
 
 -- Forespørgsel for at hente passagerliste med destination, fly og boardingkortnummer
-SELECT
+DROP PROCEDURE IF EXISTS ExtractData;
+
+DELIMITER //
+
+CREATE PROCEDURE ExtractData()
+BEGIN
+	SELECT
     p.first_name,
     p.last_name,
     p.passport_number,
@@ -97,13 +103,15 @@ SELECT
     a.model AS aircraft_model,
     f.departure_time,
     f.arrival_time
-FROM
-    Passengers p
-JOIN
-    Flights f ON p.flight_id = f.flight_id
-JOIN
-    Destinations d ON f.destination_id = d.destination_id
-JOIN
-    Aircrafts a ON f.aircraft_id = a.aircraft_id
-ORDER BY
-    f.departure_time;
+	FROM
+		Passengers p
+	JOIN
+		Flights f ON p.flight_id = f.flight_id
+	JOIN
+		Destinations d ON f.destination_id = d.destination_id
+	JOIN
+		Aircrafts a ON f.aircraft_id = a.aircraft_id
+	ORDER BY
+		f.departure_time;
+END //
+DELIMITER ;
