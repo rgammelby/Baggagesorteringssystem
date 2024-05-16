@@ -46,12 +46,9 @@
     <Compile Include="Business Logic\SortingSystem.cs" />
     <Compile Include="Data Access\BoardingPass.cs" />
     <Compile Include="Data Access\ConectionString.cs" />
-<<<<<<< HEAD
     <Compile Include="Data Access\Passenger.cs" />
     <Compile Include="Data Access\Time.cs" />
-=======
     <Compile Include="Data Access\Luggage.cs" />
->>>>>>> 70bf2deebda43a59f56b3ea5a08ee2d696777214
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\DeparturesScreen.cs" />
