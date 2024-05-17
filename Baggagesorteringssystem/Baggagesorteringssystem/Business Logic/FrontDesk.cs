@@ -1,4 +1,4 @@
-﻿using Baggagesorteringssystem.Data_Access;
+using Baggagesorteringssystem.Data_Access;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,8 @@ namespace Baggagesorteringssystem.Business_Logic
         // list of bording pass for each passenger
         List<BoardingPass> BoardingPasses = new List<BoardingPass>();
 
-        public Flight _flight;
+        private Flight _flight;
+        private Terminal _terminal;
         private int _frontDeskId;
         private bool _isOpen;
         public bool IsOpen
@@ -28,11 +29,12 @@ namespace Baggagesorteringssystem.Business_Logic
             get { return _isOpen; }
             set { _isOpen = value; }
         }
+        public Flight Flight { get; set; }
 
         // constructor for the front desk
-        public FrontDesk(Flight flight, int frontDeskId)
+        public FrontDesk(Terminal teminal, int frontDeskId)
         {
-            _flight = flight;
+            _terminal = teminal;
             _frontDeskId = frontDeskId;
             _isOpen = false;
         }
@@ -40,6 +42,9 @@ namespace Baggagesorteringssystem.Business_Logic
         // method to check in a passenger and add to the list of passengers
         public void CheckInPassenger(Passenger p)
         {
+            
+            
+            
             CheckedInPassengers.Add(p);
         }
 
@@ -53,7 +58,7 @@ namespace Baggagesorteringssystem.Business_Logic
         public void GenerateBoardingPass(Passenger p, Luggage l)
         {
             // create a new boarding pass using flight information
-            BoardingPass bp = new BoardingPass(_flight.Terminal, _flight.Gate);
+            BoardingPass bp = new BoardingPass(Flight.Terminal, Flight.Gate);
 
             // set the boarding pass for the passenger
             p.SetBoardingPass(bp);
@@ -66,5 +71,7 @@ namespace Baggagesorteringssystem.Business_Logic
             
         }
 
+
+        // a start process , then in a do while loop, then in a monotor start a thread
     }
 }
