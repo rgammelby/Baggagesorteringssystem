@@ -34,10 +34,21 @@ namespace Baggagesorteringssystem.Data_Access
 
         public List<BoardingPass> GetBoardingPasses(string table)
         {
-            private List<Aircraft> GetAircraft(string table)
+            Connection cs = new Connection();
+            var dt = cs.RetrieveData(table);
+
+            List<BoardingPass> bpl = new List<BoardingPass>();
+
+            foreach (DataColumn col in dt.Columns)
             {
-                
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //BoardingPass bp = new BoardingPass((int)dr[0], (string)dr[1], (int)dr[2]);
+                    //bpl.Add(bp);
+                }
             }
+
+            return bpl;
         }
 
         public BoardingPass(Terminal terminal, Gate gate)
