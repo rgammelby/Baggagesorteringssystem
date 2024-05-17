@@ -24,6 +24,7 @@ namespace Baggagesorteringssystem.Business_Logic
         private Terminal _terminal;
         private int _frontDeskId;
         public Terminal Terminal { get; set; }
+        public int FrontDeskId { get { return _frontDeskId; } }
         private bool _isOpen;
         public bool IsOpen
         {
