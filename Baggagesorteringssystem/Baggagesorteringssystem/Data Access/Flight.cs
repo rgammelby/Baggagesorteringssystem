@@ -1,9 +1,9 @@
-﻿using System;
+using Baggagesorteringssystem.Business_Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Baggagesorteringssystem.Business_Logic;
 
 namespace Baggagesorteringssystem.Data_Access
 {
@@ -17,11 +17,11 @@ namespace Baggagesorteringssystem.Data_Access
         private int _aircraftId;
         private int _destinationId;
 
-         // Add properties that will be generated later based on flight plan/ flightManager 
-         // set the values later when known
-         private Terminal _terminal; // Added
-         private Gate _gate; // Added
-         private List<FrontDesk> _frontDesks; // Added
+        // Add properties that will be generated later based on flight plan 
+        // set the valuse late when known
+        private Terminal _terminal; // Added
+        private Gate _gate; // Added
+        private FrontDesk _frontDesk; // Added
 
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }
@@ -30,34 +30,36 @@ namespace Baggagesorteringssystem.Data_Access
         public int AirlineId { get; set; }
         public int AircraftId { get; set; }
         public int DestinationId { get; set; }
-        
-         public Terminal Terminal
-         {
-             get { return _terminal; }
-             set { _terminal = value; }
-         }
-        
-         public Gate Gate
-         {
-             get { return _gate; }
-             set { _gate = value; }
-         }
-         public List<FrontDesk> FrontDesks // Added
-         {
-             get { return _frontDesks; }
-             set { _frontDesks = value; }
-         }
 
 
-       public Flight(int flightId, string flightNumber, DateTime departureTime, DateTime arrivalTime, int airlineId, int aircraftId, int destinationId)
+        public Terminal Terminal
         {
-            _flightId = flightId;
-            _flightNumber = flightNumber;
-            _departureTime = departureTime;
-            _arrivalTime = arrivalTime;
-            _airlineId = airlineId;
-            _aircraftId = aircraftId;
-            _destinationId = destinationId;
+            get { return _terminal; }
+            set { _terminal = value; }
+        }
+
+        public Gate Gate
+        {
+            get { return _gate; }
+            set { _gate = value; }
+        }
+        public FrontDesk FrontDesk // Added
+        {
+            get { return _frontDesk; }
+            set { _frontDesk = value; }
+        }
+
+
+
+        public Flight(int flightId, string flightNumber, DateTime departureTime, DateTime arrivalTime, int airlineId, int aircraftId, int destinationId)
+        {
+            FlightId = flightId;
+            FlightNumber = flightNumber;
+            DepartureTime = departureTime;
+            ArrivalTime = arrivalTime;
+            AirlineId = airlineId;
+            AircraftId = aircraftId;
+            DestinationId = destinationId;
         }
     }
 }
