@@ -44,8 +44,8 @@ namespace Baggagesorteringssystem.Business_Logic
         public void LoadLuggage()
         {
             // Get luggagelist from SortingToGateSystem for this gate in this terminal
-            string terminal = _frontDesk._flight.Terminal.TerminalName;
-            string teminalGateName = terminal + _frontDesk._flight.Gate.GateName;
+            string terminal = _frontDesk.Flight.Terminal.TerminalName;
+            string teminalGateName = terminal + _frontDesk.Flight.Gate.GateName;
 
             List<Luggage> luggageListToload = _sortingToGateSystem._luggagByGate[teminalGateName];
 
