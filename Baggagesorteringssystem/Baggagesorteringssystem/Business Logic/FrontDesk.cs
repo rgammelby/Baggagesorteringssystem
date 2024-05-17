@@ -22,12 +22,19 @@ namespace Baggagesorteringssystem.Business_Logic
 
         public Flight _flight;
         private int _frontDeskId;
+        private bool _isOpen;
+        public bool IsOpen
+        {
+            get { return _isOpen; }
+            set { _isOpen = value; }
+        }
 
         // constructor for the front desk
         public FrontDesk(Flight flight, int frontDeskId)
         {
             _flight = flight;
             _frontDeskId = frontDeskId;
+            _isOpen = false;
         }
 
         // method to check in a passenger and add to the list of passengers
