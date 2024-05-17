@@ -36,7 +36,7 @@ namespace Baggagesorteringssystem.Business_Logic
         // constructor for the front desk
         public FrontDesk(Terminal teminal, int frontDeskId)
         {
-            terminal = teminal;
+            Terminal = teminal;
             _frontDeskId = frontDeskId;
             _isOpen = false;
         }
