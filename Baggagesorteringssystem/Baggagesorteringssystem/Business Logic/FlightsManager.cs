@@ -24,7 +24,8 @@ namespace Baggagesorteringssystem.Business_Logic
         public Terminal terminalB = new Terminal(2, "B");
 
         public List<Flight> FlightsToDeparture { get; set; }
-
+        public List<Gate> Gates { get; set; }
+        
         public FlightsManager()
         {
             _random = new Random();
