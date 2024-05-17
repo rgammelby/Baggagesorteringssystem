@@ -23,6 +23,7 @@ namespace Baggagesorteringssystem.Business_Logic
         private Flight _flight;
         private Terminal _terminal;
         private int _frontDeskId;
+        public Terminal Terminal { get; set; }
         private bool _isOpen;
         public bool IsOpen
         {
@@ -34,7 +35,7 @@ namespace Baggagesorteringssystem.Business_Logic
         // constructor for the front desk
         public FrontDesk(Terminal teminal, int frontDeskId)
         {
-            _terminal = teminal;
+            terminal = teminal;
             _frontDeskId = frontDeskId;
             _isOpen = false;
         }
