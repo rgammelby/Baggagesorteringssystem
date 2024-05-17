@@ -40,5 +40,22 @@ namespace Baggagesorteringssystem.Data_Access
 
             return dt;
         }
+        //  Use this for open connection for FlightManager
+        public MySqlConnection GetOpenConenction()
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+                //Console.WriteLine("Connection success");
+                return connection;
+        
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Connection fails: {0}", ex.ToString());
+                return null;
+            }
+        }
     }
 }
