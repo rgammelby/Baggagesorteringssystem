@@ -16,11 +16,11 @@ namespace Baggagesorteringssystem.Business_Logic
         private List<Gate> _gates;
         public Dictionary<string, List<Luggage>> _luggagByGate = new Dictionary<string, List<Luggage>>();
 
-        // ? a sortingSystem?
+         public List<Gate> Gates { get; set; }
 
         public SortingToGateSystem(List<Gate> gates)
         {
-            _gates = gates;
+            Gates = gates;
         }
 
         
