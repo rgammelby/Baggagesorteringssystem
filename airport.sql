@@ -115,3 +115,33 @@ BEGIN
 		f.departure_time;
 END //
 DELIMITER ;
+
+
+CREATE PROCEDURE GetPassengerInfoByFlightId(IN flight_id_param INT)
+BEGIN
+    SELECT
+        p.first_name,
+        p.last_name,
+        p.passport_number,
+        p.boarding_pass_number,
+        f.flight_number,
+        d.city AS destination_city,
+        d.country AS destination_country,
+        a.model AS aircraft_model,
+        f.departure_time,
+        f.arrival_time
+    FROM
+        Passengers p
+    JOIN
+        Flights f ON p.flight_id = f.flight_id
+    JOIN
+        Destinations d ON f.destination_id = d.destination_id
+    JOIN
+        Aircrafts a ON f.aircraft_id = a.aircraft_id
+    WHERE
+        f.flight_id = flight_id_param
+    ORDER BY
+        f.departure_time;
+END$$
+
+DELIMITER ;
