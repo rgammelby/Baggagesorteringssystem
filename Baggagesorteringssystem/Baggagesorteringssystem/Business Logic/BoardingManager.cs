@@ -1,4 +1,4 @@
-﻿using Baggagesorteringssystem.Data_Access;
+using Baggagesorteringssystem.Data_Access;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +36,12 @@ namespace Baggagesorteringssystem.Business_Logic
                 _onboardPassengers.Add(passenger);
                 _frontDesk.CheckedInPassengers.Remove(passenger);
             }
+            // after all CheckedInPassengers are on board, set gate.IsOpen = false
+            if(_frontDesk.CheckedInPassengers.Count == 0)
+            {
+                _frontDesk.IsOpen = false;
+            }
+
         }
 
         /// <summary>
@@ -54,6 +60,12 @@ namespace Baggagesorteringssystem.Business_Logic
             {
                 _loadedLuggages.Add(luggage);
                 _sortingToGateSystem._luggagByGate[teminalGateName].Remove(luggage);
+            }
+
+            // after all luggagByGate is loaded, set gate isOpen = false
+            if (luggageListToload.Count == 0)
+            {
+                _frontDesk.Flight.Gate.IsOpen = false;
             }
         }
     }
