@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,14 @@ namespace Baggagesorteringssystem.Data_Access
                 boardingPassNumber = GenerateBoardingPassNumber();
 
             return boardingPassNumber;
+        }
+
+        public List<BoardingPass> GetBoardingPasses(string table)
+        {
+            private List<Aircraft> GetAircraft(string table)
+            {
+                
+            }
         }
 
         public BoardingPass(Terminal terminal, Gate gate)

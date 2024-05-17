@@ -96,7 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business Logic\SortingSystem.cs" />
+    <Compile Include="Business Logic\BoardingManager.cs" />
+    <Compile Include="Business Logic\FlightsManager.cs" />
+    <Compile Include="Business Logic\FrontDesk.cs" />
+    <Compile Include="Business Logic\SortingToGateSystem.cs" />
     <Compile Include="Data Access\Aircraft.cs" />
+    <Compile Include="Data Access\Airline.cs" />
     <Compile Include="Data Access\BoardingPass.cs" />
     <Compile Include="Data Access\Connection.cs" />
     <Compile Include="Data Access\Destination.cs" />

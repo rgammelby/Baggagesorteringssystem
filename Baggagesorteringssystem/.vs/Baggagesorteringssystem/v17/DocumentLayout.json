@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|solutionrelative:baggagesorteringssystem\\data access\\boardingpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|c:\\users\\rfj594\\desktop\\zbc\\baggage\\baggagesorteringssystem\\baggagesorteringssystem\\baggagesorteringssystem\\data access\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|solutionrelative:baggagesorteringssystem\\data access\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|c:\\users\\rfj594\\desktop\\zbc\\baggage\\baggagesorteringssystem\\baggagesorteringssystem\\baggagesorteringssystem\\data access\\aircraft.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|solutionrelative:baggagesorteringssystem\\data access\\aircraft.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|c:\\users\\rfj594\\desktop\\zbc\\baggage\\baggagesorteringssystem\\baggagesorteringssystem\\baggagesorteringssystem\\data access\\luggage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|solutionrelative:baggagesorteringssystem\\data access\\luggage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|solutionrelative:Baggagesorteringssystem\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|c:\\users\\rfj594\\desktop\\zbc\\baggage\\baggagesorteringssystem\\baggagesorteringssystem\\baggagesorteringssystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1F201C5-72E8-4F25-8E23-9A33F550D3E6}|Baggagesorteringssystem\\Baggagesorteringssystem.csproj|solutionrelative:baggagesorteringssystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,48 +30,35 @@
               "Title": "BoardingPass.cs",
               "DocumentMoniker": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\BoardingPass.cs",
               "RelativeDocumentMoniker": "Baggagesorteringssystem\\Data Access\\BoardingPass.cs",
-              "ToolTip": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\BoardingPass.cs",
-              "RelativeToolTip": "Baggagesorteringssystem\\Data Access\\BoardingPass.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "ToolTip": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\BoardingPass.cs*",
+              "RelativeToolTip": "Baggagesorteringssystem\\Data Access\\BoardingPass.cs*",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAswCQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T11:29:06.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Luggage.cs",
-              "DocumentMoniker": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\Luggage.cs",
-              "RelativeDocumentMoniker": "Baggagesorteringssystem\\Data Access\\Luggage.cs",
-              "ToolTip": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\Luggage.cs",
-              "RelativeToolTip": "Baggagesorteringssystem\\Data Access\\Luggage.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAgwDQAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T11:28:44.016Z",
+              "WhenOpened": "2024-05-17T07:41:14.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Connection.cs",
-              "DocumentMoniker": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\Connection.cs",
-              "RelativeDocumentMoniker": "Baggagesorteringssystem\\Data Access\\Connection.cs",
-              "ToolTip": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\Connection.cs",
-              "RelativeToolTip": "Baggagesorteringssystem\\Data Access\\Connection.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAowBcAAAA7AAAA",
+              "Title": "Aircraft.cs",
+              "DocumentMoniker": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\Aircraft.cs",
+              "RelativeDocumentMoniker": "Baggagesorteringssystem\\Data Access\\Aircraft.cs",
+              "ToolTip": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Data Access\\Aircraft.cs",
+              "RelativeToolTip": "Baggagesorteringssystem\\Data Access\\Aircraft.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowB0AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T08:25:56.862Z",
+              "WhenOpened": "2024-05-17T07:35:32.381Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Program.cs",
               "RelativeDocumentMoniker": "Baggagesorteringssystem\\Program.cs",
               "ToolTip": "C:\\Users\\rfj594\\Desktop\\ZBC\\Baggage\\Baggagesorteringssystem\\Baggagesorteringssystem\\Baggagesorteringssystem\\Program.cs",
               "RelativeToolTip": "Baggagesorteringssystem\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAZAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T06:34:29.789Z",
               "EditorCaption": ""
