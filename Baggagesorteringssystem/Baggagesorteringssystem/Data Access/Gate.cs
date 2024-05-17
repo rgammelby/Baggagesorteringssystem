@@ -41,7 +41,7 @@ namespace Baggagesorteringssystem.Data_Access
 
         public Gate(Terminal terminal, int gateId, string gateName)
         {
-            _terminal = terminal;
+            Terminal = terminal;
             _gateId = gateId;
             GateName = gateName;
             _isOpen = false;
