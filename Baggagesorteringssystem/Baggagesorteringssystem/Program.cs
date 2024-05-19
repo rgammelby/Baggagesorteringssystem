@@ -16,15 +16,15 @@ namespace Baggagesorteringssystem
 
         static async Task Main(string[] args)
         {
-            Airline a = new Airline();
-            List<Airline> ac = a.GetAirlines("airlines");
-            var aircraftCount = 0;
+            //Airline a = new Airline();
+            //List<Airline> ac = a.GetAirlines("airlines");
+            //var aircraftCount = 0;
 
-            foreach (Airline al in ac)
-            {
-                aircraftCount++;
-                Console.WriteLine($"AIRLINE NUMBER {aircraftCount}\n\nAirline ID: {al.AirlineID}\nAirline Name: {al.Name}\n");
-            }
+            //foreach (Airline al in ac)
+            //{
+            //    aircraftCount++;
+            //    Console.WriteLine($"AIRLINE NUMBER {aircraftCount}\n\nAirline ID: {al.AirlineID}\nAirline Name: {al.Name}\n");
+            //}
 
             // TEsT GET FLIGHTS ON A DAY
             //string datestring = "20240602";
