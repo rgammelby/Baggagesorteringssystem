@@ -14,7 +14,7 @@ namespace Baggagesorteringssystem
     internal class Program
     {
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Airline a = new Airline();
             List<Airline> ac = a.GetAirlines("airlines");
@@ -44,7 +44,7 @@ namespace Baggagesorteringssystem
             
 
             AirportManager am = new AirportManager();
-            am.StartAirport();
+            await am.StartAirport();
 
             Console.ReadLine();
         }

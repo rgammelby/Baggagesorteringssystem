@@ -1,5 +1,6 @@
 ﻿using Baggagesorteringssystem.Data_Access;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,21 @@ namespace Baggagesorteringssystem.Business_Logic
         // all incoming luggage is placed in LuggageToSort list for sorting
         List<Luggage> LuggageToSort = new List<Luggage>();
 
-        // for luggage with no designated terminal
-        List<Luggage> LostLuggage = new List<Luggage>();
+        // property for list LuggateToSort
+        public List<Luggage> LuggageToSortList { get ; set;  }
 
-        // mayb this instead of sorted luggage list
-        List<Luggage> OutgoingTerminalA = new List<Luggage>();
-        List<Luggage> OutgoingTerminalB = new List<Luggage>();
+        // for luggage with no designated terminal
+        public List<Luggage> LostLuggage { get; set; }
+
+        public ConcurrentQueue<Luggage> OutgoingTerminalA { get; set; }
+        public ConcurrentQueue<Luggage> OutgoingTerminalB { get; set; }
+
+        public SortingSystem()
+        {
+            OutgoingTerminalA = new ConcurrentQueue<Luggage>();
+            OutgoingTerminalB = new ConcurrentQueue<Luggage>();
+            LostLuggage = new List<Luggage>();
+        }
 
         // luggage as parameter to check props
         public void SortLuggage(Luggage l)
@@ -26,14 +36,14 @@ namespace Baggagesorteringssystem.Business_Logic
             {
                 // send to correct terminal
                 // or add to outgoing terminal A list
-                OutgoingTerminalA.Add(l);
+                OutgoingTerminalA.Enqueue(l);
             }
 
             else if (l.BoardingPass.Terminal.TerminalName == "B")
             {
                 // send to other terminal
                 // or add to outgoing terminal B list
-                OutgoingTerminalB.Add(l);
+                OutgoingTerminalB.Enqueue(l);
             }
 
             else
@@ -56,6 +66,15 @@ namespace Baggagesorteringssystem.Business_Logic
                     LuggageToSort.Remove(LuggageToSort.Last());
                 }
             }
+        }
+
+        public void AddLuggage(List<Luggage> luggageToAdd)
+        {
+            foreach (var luggage in luggageToAdd)
+            {
+                SortLuggage(luggage);
+            }
+
         }
     }
 }

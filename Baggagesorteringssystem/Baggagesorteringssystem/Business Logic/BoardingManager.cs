@@ -20,6 +20,7 @@ namespace Baggagesorteringssystem.Business_Logic
         // Dependency Injection
         private FrontDesk _frontDesk;
         private SortingToGateSystem _sortingToGateSystem;
+        public List<Luggage> LoadedLuggages { get; set; } = new List<Luggage>();
 
         public BoardingManager(FrontDesk frontDesk, SortingToGateSystem sortingToGateSystem)
         {
@@ -31,15 +32,26 @@ namespace Baggagesorteringssystem.Business_Logic
         {
             // board passengers in CheckedInPassengers list, add them to OnboardPassengers list
             // remove them from CheckedInPassengers list
-            foreach (var passenger in _frontDesk.CheckedInPassengers)
+
+            _onboardPassengers = new List<Passenger>();
+
+            var passenrsToBoard = new List<Passenger>(_frontDesk.CheckedInPassengers);
+
+            foreach (var passenger in passenrsToBoard)
             {
                 _onboardPassengers.Add(passenger);
                 _frontDesk.CheckedInPassengers.Remove(passenger);
             }
             // after all CheckedInPassengers are on board, set gate.IsOpen = false
-            if(_frontDesk.CheckedInPassengers.Count == 0)
+            //if(_frontDesk.CheckedInPassengers.Count == 0)
             {
                 _frontDesk.IsOpen = false;
+
+                // If all luggage has also been loaded, set the flight to departed
+                if (_frontDesk.Flight.Gate.IsOpen == false)
+                {
+                    _frontDesk.Flight.IsDepartured = true;
+                }
             }
 
         }
@@ -56,16 +68,23 @@ namespace Baggagesorteringssystem.Business_Logic
             List<Luggage> luggageListToload = _sortingToGateSystem._luggagByGate[teminalGateName];
 
             // load luggage onto the plane, then remove them from the list
-            foreach (var luggage in _sortingToGateSystem._luggagByGate[teminalGateName])
+            for (int i = 0; i < luggageListToload.Count; i++)
             {
-                _loadedLuggages.Add(luggage);
-                _sortingToGateSystem._luggagByGate[teminalGateName].Remove(luggage);
+                Luggage luggage = luggageListToload.First();
+                LoadedLuggages.Add(luggage);
+                luggageListToload.Remove(luggage);
             }
 
             // after all luggagByGate is loaded, set gate isOpen = false
-            if (luggageListToload.Count == 0)
+            //if (luggageListToload.Count == 0)
             {
                 _frontDesk.Flight.Gate.IsOpen = false;
+
+                // If all passengers have also boarded, set the flight to departed
+                if (_frontDesk.CheckedInPassengers.Count == 0)
+                {
+                    _frontDesk.Flight.IsDepartured = true;
+                }
             }
         }
     }

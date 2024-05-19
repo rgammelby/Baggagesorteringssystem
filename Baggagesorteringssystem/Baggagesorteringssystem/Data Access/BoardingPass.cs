@@ -24,10 +24,19 @@ namespace Baggagesorteringssystem.Data_Access
             Random r = new Random();
             var boardingPassNumber = r.Next(9999, 99999);
 
-            BoardingPassNumbers.Add(boardingPassNumber);
+            //BoardingPassNumbers.Add(boardingPassNumber);
 
-            if (BoardingPassNumbers.Contains(boardingPassNumber))
-                boardingPassNumber = GenerateBoardingPassNumber();
+            //if (BoardingPassNumbers.Contains(boardingPassNumber))
+            //    boardingPassNumber = GenerateBoardingPassNumber();
+
+            //return boardingPassNumber;
+
+            while (BoardingPassNumbers.Contains(boardingPassNumber))
+            {
+                boardingPassNumber = r.Next(9999, 99999);
+            }
+
+            BoardingPassNumbers.Add(boardingPassNumber);
 
             return boardingPassNumber;
         }

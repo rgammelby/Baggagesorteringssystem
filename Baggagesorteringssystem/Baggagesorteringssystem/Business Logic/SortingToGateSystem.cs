@@ -1,5 +1,6 @@
 ﻿using Baggagesorteringssystem.Data_Access;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,45 +19,94 @@ namespace Baggagesorteringssystem.Business_Logic
 
          public List<Gate> Gates { get; set; }
 
-        public SortingToGateSystem(List<Gate> gates)
+        public SortingToGateSystem()
         {
-            Gates = gates;
+            
         }
 
         
-        public void SortLuggageToGate(List<Luggage> outgoingTerminalA, List<Luggage> outgoingTerminalB)
+        private object _lock = new object();
+
+        public void SortLuggageToGate(ConcurrentQueue<Luggage> outgoingTerminalA, ConcurrentQueue<Luggage> outgoingTerminalB)
         {
-            foreach (var luggage in outgoingTerminalA)
+            lock (_lock)
             {
-                var gateName = "A" + luggage.BoardingPass.Gate.GateName;
 
-                // if gate does not exist in dictionary, create list for that gate
-                if (!_luggagByGate.ContainsKey(gateName))
+
+                while ( outgoingTerminalA.TryDequeue(out Luggage luggageA))
                 {
-                    _luggagByGate[gateName] = new List<Luggage>();
-                }
-                // Add luggage to gate
-                _luggagByGate[gateName].Add(luggage);
+                    var gateName = "A" + luggageA.BoardingPass.Gate.GateName;
 
-                // remove luggage from outgoingTerminalA
-                outgoingTerminalA.Remove(luggage);
+                    // if gate does not exist in dictionary, create list for that gate
+                    if (!_luggagByGate.ContainsKey(gateName))
+                    {
+                        _luggagByGate[gateName] = new List<Luggage>();
+                    }
+                    // Add luggage to gate
+                    _luggagByGate[gateName].Add(luggageA);
+                }
+
+                while (outgoingTerminalB.TryDequeue(out Luggage luggageB))
+                {
+                    var gateName = "B" + luggageB.BoardingPass.Gate.GateName;
+
+                    // if gate does not exist in dictionary, create list for that gate
+                    if (!_luggagByGate.ContainsKey(gateName))
+                    {
+                        _luggagByGate[gateName] = new List<Luggage>();
+                    }
+                    // Add luggage to gate
+                    _luggagByGate[gateName].Add(luggageB);
+                }
+
+                //List<Luggage> itemsToRemoveA = new List<Luggage>();
+                //List<Luggage> itemsToRemoveB = new List<Luggage>();
+
+
+                //foreach (var luggage in outgoingTerminalA)
+                //{
+                //    var gateName = "A" + luggage.BoardingPass.Gate.GateName;
+
+                //    // if gate does not exist in dictionary, create list for that gate
+                //    if (!_luggagByGate.ContainsKey(gateName))
+                //    {
+                //        _luggagByGate[gateName] = new List<Luggage>();
+                //    }
+                //    // Add luggage to gate
+                //    _luggagByGate[gateName].Add(luggage);
+
+                //    // instead of removing the item here, add it to the itemsToRemoveA list
+                //    itemsToRemoveA.Add(luggage);
+                //}
+
+                //foreach (var luggage in outgoingTerminalB)
+                //{
+                //    var gateName = "B" + luggage.BoardingPass.Gate.GateName;
+
+                //    // if gate does not exist in dictionary, create list for that gate
+                //    if (!_luggagByGate.ContainsKey(gateName))
+                //    {
+                //        _luggagByGate[gateName] = new List<Luggage>();
+                //    }
+                //    // Add luggage to the list of the same gate
+                //    _luggagByGate[gateName].Add(luggage);
+
+                //    // instead of removing the item here, add it to the itemsToRemoveB list
+                //    itemsToRemoveB.Add(luggage);
+                //}
+
+                //// now remove the items from outgoingTerminalA
+                //foreach (var luggage in itemsToRemoveA)
+                //{
+                //    outgoingTerminalA.Remove(luggage);
+                //}
+
+                //// and remove the items from outgoingTerminalB
+                //foreach (var luggage in itemsToRemoveB)
+                //{
+                //    outgoingTerminalB.Remove(luggage);
+                //}
             }
-
-            foreach (var luggage in outgoingTerminalB)
-            {
-                var gateName = "B" + luggage.BoardingPass.Gate.GateName;
-
-                // if gate does not exist in dictionary, create list for that gate
-                if (!_luggagByGate.ContainsKey(gateName))
-                {
-                    _luggagByGate[gateName] = new List<Luggage>();
-                }
-                // Add luggage to the list of the same gate
-                _luggagByGate[gateName].Add(luggage);
-
-                // remove luggage from outgoingTerminalB
-                outgoingTerminalB.Remove(luggage);
-            }   
         }
     }
 }

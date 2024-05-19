@@ -30,7 +30,7 @@ namespace Baggagesorteringssystem.Data_Access
         public int AirlineId { get; set; }
         public int AircraftId { get; set; }
         public int DestinationId { get; set; }
-
+        public bool IsDepartured { get; set; } 
 
         public Terminal Terminal
         {
@@ -60,6 +60,11 @@ namespace Baggagesorteringssystem.Data_Access
             AirlineId = airlineId;
             AircraftId = aircraftId;
             DestinationId = destinationId;
+        }
+
+        public override string ToString()
+        {
+            return $"Flight {FlightNumber}";
         }
     }
 }

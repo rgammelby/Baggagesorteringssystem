@@ -13,25 +13,24 @@ namespace Baggagesorteringssystem.Data_Access
         public BoardingPass BoardingPass { get { return _bordingPass; } }
 
         private string _flightId;
-        private string _passengerName;
-        private string _destination;
-        private string _flightTime;
-        private double _weight;
-        private bool _isCheckedIn;
+        private int _passengerId;
+        private int _destinationId;
+        private DateTime _flightTime;
+        
         private string _qrCode { get; set; }
 
 
         List<string> qrCodeList = new List<string>();
 
         //constructor for luggage
-        public Luggage(string flightId, string passengerName, string destination, string flightTime, double weight, bool isCheckedIn)
+        public Luggage(string flightId, int passengerId, int destinationId, DateTime flightTime)
         {
             _flightId = flightId;
-            _passengerName = passengerName;
-            _destination = destination;
+            _passengerId = passengerId;
+            _destinationId = destinationId;
             _flightTime = flightTime;
-            _weight = weight;
-            _isCheckedIn = isCheckedIn;
+            
+            
             _qrCode = GenerateQRCode();
         }
 

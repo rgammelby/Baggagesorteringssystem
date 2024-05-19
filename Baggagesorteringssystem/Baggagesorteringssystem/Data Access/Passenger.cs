@@ -15,18 +15,31 @@ namespace Baggagesorteringssystem.Data_Access
         private int _flightId;
         private BoardingPass _boardingPass;
 
+        public int FlightId { get; set; }
+        public int PassengerId { get { return _passengerId; } }
+
         List<int> PassportNumbers = new List<int>();
 
         private int GeneratePassportNumber()
         {
             Random r = new Random();
-            var passportNumber = r.Next(9999999, 99999999);
+
+            //var passportNumber = r.Next(9999999, 99999999);
+
+            //PassportNumbers.Add(passportNumber);
+
+            //if (PassportNumbers.Contains(passportNumber))
+            //    passportNumber = GeneratePassportNumber();
+
+            //return passportNumber;
+
+            int passportNumber;
+            do
+            {
+                passportNumber = r.Next(9999999, 99999999);
+            } while (PassportNumbers.Contains(passportNumber));
 
             PassportNumbers.Add(passportNumber);
-
-            if (PassportNumbers.Contains(passportNumber))
-                passportNumber = GeneratePassportNumber();
-
             return passportNumber;
         }
 
