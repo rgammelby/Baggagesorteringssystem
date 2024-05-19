@@ -25,6 +25,8 @@ namespace Baggagesorteringssystem.Business_Logic
         // list of bording pass for each passenger
         List<BoardingPass> BoardingPasses = new List<BoardingPass>();
 
+       
+
         private Flight _flight;
         private Terminal _terminal;
         private int _frontDeskId;
@@ -189,7 +191,5 @@ namespace Baggagesorteringssystem.Business_Logic
             
         }
 
-
-        // a start process , then in a do while loop, then in a monotor start a thread
     }
 }

@@ -23,6 +23,9 @@ namespace Baggagesorteringssystem.Business_Logic
         private SortingToGateSystem _sortingToGateSystem;
         private BoardingManager _boardingManager;
 
+        public int TotalPassengersAirport { get; set; } = 0;
+        public int TotalFlightsAirport { get; set; } = 0;
+
         public AirportManager()
         {
             _flightsManager = new FlightsManager();
@@ -50,6 +53,8 @@ namespace Baggagesorteringssystem.Business_Logic
 
                 var flightsOfTheDayCopy = new List<Flight>(flightsOfTheDay);
 
+                //update total flights count
+                TotalFlightsAirport += flightsOfTheDay.Count;
 
                 // Log the numbers of flights on the date
                 Console.WriteLine($"Date: {date}, Number of Flights: {flightsOfTheDay.Count}");
@@ -58,6 +63,7 @@ namespace Baggagesorteringssystem.Business_Logic
                 {
                     //List<Flight> flightsOfTheDay = _flightsManager.AssignFrontDeskAndGateToFlightThread(date);
                     _flightsManager.AssignFrontDeskAndGateToFlight(flightsOfTheDayCopy);
+                    
                     
 
                     var flightTasks = new List<Task>();
@@ -72,6 +78,8 @@ namespace Baggagesorteringssystem.Business_Logic
                             //_frontDesk.CheckInPassengersAndLuggageThread();
                             _frontDesk.CheckInPassengersAndLuggage();
 
+                            
+
                             await Task.Delay(1000);
 
                             // sorting luggages to terminal
@@ -85,6 +93,9 @@ namespace Baggagesorteringssystem.Business_Logic
                             var _boardingManager = new BoardingManager(_frontDesk, _sortingToGateSystem);
                             _boardingManager.BoardPassengers();
                             _boardingManager.LoadLuggage();
+
+                            // update total passengers count
+                            TotalPassengersAirport += _boardingManager.TotalPassengers;
 
                             lock (_lock)
                             {
@@ -104,7 +115,12 @@ namespace Baggagesorteringssystem.Business_Logic
                 }
 
                 //  Plane info showing screen 
+                foreach(Flight flight in flightsOfTheDay)
+                {
+                    Console.WriteLine($"Date: {date}, Flight: {flight.FlightNumber}, Destination: {flight.DestinationId}, Terminal: {flight.Terminal.TerminalName}, Gate: {flight.Gate.GateName}, FrontDesk: {flight.FrontDesk.FrontDeskId}");
+                    
 
+                }
 
                 // log to status report, date, number of flights, flights, numbers of passengers
 
@@ -122,6 +138,11 @@ namespace Baggagesorteringssystem.Business_Logic
                     { "Number of Flights", flightsOfTheDay.Count },
                     { "Flights", flightsOfTheDay }
                 };
+
+
+                // Add the total number of flights and passengers to the log data
+                logData.Add("Total Flights", TotalFlightsAirport);
+                logData.Add("Total Passengers", TotalPassengersAirport);
 
                 // Serialize the dictionary to a JSON string
                 string json = JsonConvert.SerializeObject(logData, Newtonsoft.Json.Formatting.Indented);

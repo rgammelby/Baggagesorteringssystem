@@ -21,6 +21,9 @@ namespace Baggagesorteringssystem.Business_Logic
         private List<Gate> _gates;
         private List<FrontDesk> _frontDesks;
         private Random _random;
+
+        
+
         // initialize terminals
         public Terminal terminalA = new Terminal(1, "A");
         public Terminal terminalB = new Terminal(2, "B");
@@ -30,11 +33,15 @@ namespace Baggagesorteringssystem.Business_Logic
 
         public List<Flight> FlightsToDeparture { get; set; }
         public List<Gate> Gates { get; set; }
+
         
+        public int TotalFlights { get; set; } = 0;
+
         public FlightsManager()
         {
             _random = new Random();
             InitializeGatesAndFrontDesks();
+
         }
 
         public List<string> GetUniqueFlightDates()
@@ -158,6 +165,7 @@ namespace Baggagesorteringssystem.Business_Logic
                     frontDesk.IsOpen = true;
                 }
 
+                TotalFlights++;
             }
 
         }

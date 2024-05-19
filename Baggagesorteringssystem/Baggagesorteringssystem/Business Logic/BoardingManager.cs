@@ -22,6 +22,8 @@ namespace Baggagesorteringssystem.Business_Logic
         private SortingToGateSystem _sortingToGateSystem;
         public List<Luggage> LoadedLuggages { get; set; } = new List<Luggage>();
 
+        public int TotalPassengers { get; set; } = 0;
+
         public BoardingManager(FrontDesk frontDesk, SortingToGateSystem sortingToGateSystem)
         {
             _frontDesk = frontDesk;
@@ -41,6 +43,8 @@ namespace Baggagesorteringssystem.Business_Logic
             {
                 _onboardPassengers.Add(passenger);
                 _frontDesk.CheckedInPassengers.Remove(passenger);
+
+                TotalPassengers++;
             }
             // after all CheckedInPassengers are on board, set gate.IsOpen = false
             //if(_frontDesk.CheckedInPassengers.Count == 0)
