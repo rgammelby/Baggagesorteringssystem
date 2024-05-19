@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Baggagesorteringssystem.Business_Logic;
 using Baggagesorteringssystem.Data_Access;
 
 namespace Baggagesorteringssystem
@@ -24,6 +25,18 @@ namespace Baggagesorteringssystem
                 aircraftCount++;
                 Console.WriteLine($"AIRLINE NUMBER {aircraftCount}\n\nAirline ID: {al.AirlineID}\nAirline Name: {al.Name}\n");
             }
+
+            // TEsT GET FLIGHTS ON A DAY
+            string datestring = "20240602";
+            FlightsManager fm20240602 = new FlightsManager();
+            List<Flight> flights = new List<Flight>();
+
+            flights = fm20240602.AssignFrontDeskAndGateToFlight(datestring);
+
+            fm20240602.PrintFlightsInformation(flights);
+
+
+            Console.ReadLine();
         }
     }
 }
