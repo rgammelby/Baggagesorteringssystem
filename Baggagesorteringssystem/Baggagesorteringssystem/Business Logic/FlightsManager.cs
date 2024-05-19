@@ -30,9 +30,30 @@ namespace Baggagesorteringssystem.Business_Logic
         {
             _random = new Random();
             InitializeGatesAndFrontDesks();
-            
         }
 
+        public List<string> GetUniqueFlightDates()
+        {
+            List<string> uniqueDates = new List<string>();
+
+            MySqlConnection connection = _cs.GetOpenConenction();
+            if (connection != null)
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT DISTINCT DATE(departure_time) FROM flights", connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DateTime date = reader.GetDateTime(0);
+                        uniqueDates.Add(date.ToString("yyyyMMdd"));
+                    }
+                }
+                connection.Close();
+            }
+
+            return uniqueDates;
+        }
         public List<Flight> AssignFrontDeskAndGateToFlight(string dateString)
         {
             List<Flight> flightsOfTheDay = GetFlightsByDate(dateString);

@@ -27,14 +27,24 @@ namespace Baggagesorteringssystem
             }
 
             // TEsT GET FLIGHTS ON A DAY
-            string datestring = "20240602";
-            FlightsManager fm20240602 = new FlightsManager();
-            List<Flight> flights = new List<Flight>();
+            //string datestring = "20240602";
+            //FlightsManager fm20240602 = new FlightsManager();
+            //List<Flight> flights = new List<Flight>();
 
-            flights = fm20240602.AssignFrontDeskAndGateToFlight(datestring);
+            //flights = fm20240602.AssignFrontDeskAndGateToFlight(datestring);
 
-            fm20240602.PrintFlightsInformation(flights);
+            //fm20240602.PrintFlightsInformation(flights);
 
+            //List<string> dates = fm20240602.GetUniqueFlightDates();
+            //foreach (string date in dates)
+            //{
+            //    Console.WriteLine(date);
+            //}
+            //Console.WriteLine(dates.Count);
+            
+
+            AirportManager am = new AirportManager();
+            am.StartAirport();
 
             Console.ReadLine();
         }

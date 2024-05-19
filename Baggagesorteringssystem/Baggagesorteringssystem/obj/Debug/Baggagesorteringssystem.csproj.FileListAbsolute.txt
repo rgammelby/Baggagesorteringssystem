@@ -87,3 +87,5 @@ C:\Users\twan\Source\Repos\Baggagesorteringssystem0519\Baggagesorteringssystem\B
 C:\Users\twan\Source\Repos\Baggagesorteringssystem0519\Baggagesorteringssystem\Baggagesorteringssystem\obj\Debug\Baggages.DB4B5395.Up2Date
 C:\Users\twan\Source\Repos\Baggagesorteringssystem0519\Baggagesorteringssystem\Baggagesorteringssystem\obj\Debug\Baggagesorteringssystem.exe
 C:\Users\twan\Source\Repos\Baggagesorteringssystem0519\Baggagesorteringssystem\Baggagesorteringssystem\obj\Debug\Baggagesorteringssystem.pdb
+C:\Users\twan\source\repos\Baggagesorteringssystem0519\Baggagesorteringssystem\Baggagesorteringssystem\bin\Debug\Newtonsoft.Json.dll
+C:\Users\twan\source\repos\Baggagesorteringssystem0519\Baggagesorteringssystem\Baggagesorteringssystem\bin\Debug\Newtonsoft.Json.xml
